@@ -20,6 +20,7 @@ namespace Quest
             Challenge whatSecond = new Challenge(
                 "What is the current second?", DateTime.Now.Second, 50);
 
+            //choose a number between 1 and 9
             int randomNumber = new Random().Next() % 10;
             Challenge guessRandom = new Challenge("What number am I thinking of?", randomNumber, 25);
 
