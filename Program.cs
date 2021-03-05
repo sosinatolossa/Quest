@@ -9,9 +9,19 @@ namespace Quest
     {
         static void Main(string[] args)
         {
+            Robe playerRobe = new Robe();
+            {
+                playerRobe.robeLength = 36;
+                playerRobe.robeColors = new List<string>()
+                {
+                    "green", "yellow", "red"
+                };
+            }
             // Make a new "Adventurer" object using the "Adventurer" class
             Console.Write("What's your name? ");
-            Adventurer theAdventurer = new Adventurer(Console.ReadLine());
+            string thePlayersName = Console.ReadLine();
+            Adventurer theAdventurer = new Adventurer(thePlayersName, playerRobe);
+            Console.WriteLine(theAdventurer.GetDescription());
 
             //this makes the whole function run
             executedAdventure();
@@ -94,10 +104,10 @@ namespace Quest
                 {
                     executedAdventure(); //run the whole program
                 }
-                else
+                else //if they did not answer yes
                 {
-                    Console.WriteLine("Okay, whatever. See ya.");
-                    return;
+                    Console.WriteLine("Okay, whatever. See ya."); //tell them this
+                    return; //and end it
                 }
             }
         }
