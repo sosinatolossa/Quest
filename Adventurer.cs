@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Quest
 {
     // An instance of the Adventurer class is an object that will undergo some challenges
@@ -12,11 +14,15 @@ namespace Quest
         //  So it can be read and changed by any code in the application
         public int Awesomeness { get; set; }
 
+        public Robe ColorfulRobe { get; }
+
+
         // A constructor to make a new Adventurer object with a given name
-        public Adventurer(string name)
+        public Adventurer(string name, Robe robe)
         {
             Name = name;
             Awesomeness = 50;
+            ColorfulRobe = robe;
         }
 
 
@@ -44,6 +50,21 @@ namespace Quest
             }
 
             return $"Adventurer, {Name}, is {status}";
+        }
+
+        // Adding a new constructor parameter to the "Adventurer" class to accept a "Robe"
+        //and to ser the "ColorfulRobe" property
+        public string GetDescription()
+        {
+            string allColors = "";
+            List<string> robeColors = new List<string>();
+            robeColors = ColorfulRobe.robeColors;
+
+            foreach (string color in robeColors)
+            {
+                allColors += $"{color} ";
+            }
+            return ($"Hi {Name}, you are wearing a nice {allColors}colored robe that is {ColorfulRobe.robeLength} inches long. Good luck on your quest!!");
         }
     }
 }
