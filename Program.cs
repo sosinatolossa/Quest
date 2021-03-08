@@ -9,6 +9,7 @@ namespace Quest
     {
         static void Main(string[] args)
         {
+            // you instantiated a new robe property with a length and colors
             Robe playerRobe = new Robe();
             {
                 playerRobe.robeLength = 36;
@@ -17,9 +18,9 @@ namespace Quest
                     "green", "yellow", "red"
                 };
             }
-            // Make a new "Adventurer" object using the "Adventurer" class
             Console.Write("What's your name? ");
             string thePlayersName = Console.ReadLine();
+            // Make a new "Adventurer" object using the "Adventurer" class
             Adventurer theAdventurer = new Adventurer(thePlayersName, playerRobe);
             Console.WriteLine(theAdventurer.GetDescription());
 

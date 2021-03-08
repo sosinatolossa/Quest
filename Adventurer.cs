@@ -18,6 +18,7 @@ namespace Quest
 
 
         // A constructor to make a new Adventurer object with a given name
+        // the value for Awesomeness is set to 50 by default so we don't pass it in the Adventurer new object
         public Adventurer(string name, Robe robe)
         {
             Name = name;
@@ -57,10 +58,11 @@ namespace Quest
         public string GetDescription()
         {
             string allColors = "";
-            List<string> robeColors = new List<string>();
-            robeColors = ColorfulRobe.robeColors;
-
-            foreach (string color in robeColors)
+            // List<string> robeColors = new List<string>();
+            // robeColors = ColorfulRobe.robeColors;
+            // foreach (string color in robeColors)
+            // you can do what's above or just write one line for foreach
+            foreach (string color in ColorfulRobe.robeColors)
             {
                 allColors += $"{color} ";
             }
