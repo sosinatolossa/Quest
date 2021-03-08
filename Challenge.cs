@@ -15,22 +15,26 @@ namespace Quest
 
         // A constructor for the Challenge
         // We can tell it's a constructor because it has the same name as the class 
-        //   and it doesn't specify a return type
+        // and it doesn't specify a return type
         // Note the constructor parameters and what is done with them
         public Challenge(string text, int correctAnswer, int awesomenessChange)
         {
+            // these properties are fields, which are not publicly accessbile properties
+            // maybe you can access it with this current scope
+            // but no where else. eg: not in challenge.cs, you will get error
             _text = text;
             _correctAnswer = correctAnswer;
             _awesomenessChange = awesomenessChange;
         }
 
-        // This method will take an Adventurer object and make that Adventurer perform the challenge
+        // This method will take an Adventurer object and make that Adventurer perform the challenge by passing the adventurer object to it
         public void RunChallenge(Adventurer adventurer)
         {
             Console.Write($"{_text}: ");
             string answer = Console.ReadLine();
 
             int numAnswer;
+            //if answer was a string, TryParse will change it to int and reassigns the number to numAnswer which will be int
             bool isNumber = int.TryParse(answer, out numAnswer);
 
             Console.WriteLine();
